@@ -24,26 +24,23 @@ public class DiscountOfGamesController {
 
     @Autowired
     private DiscountOfGamesService discountOfGamesService;
-/*
     @Autowired
     private DiscountOfGamesRepository discountOfGamesRepository;
     @Autowired
     private GameOffersRepository gameOffersRepository;
-*/
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String sayHello()  {
         return "Hello";
     }
 
-   /* //@CrossOrigin
+    //@CrossOrigin
     @RequestMapping(value = "/getLatest", method = RequestMethod.GET)
     public List<GameOffersDTO> getLatest() throws IOException {
         List<GameOffersDTO> gameOffersDTOS = discountOfGamesService.getContentFromWeb();
 
-        *//*
-        data create
-         *//*
+
+
         gameOffersDTOS.forEach(gameOffersDTO -> {
             gameOffersRepository.saveAndFlush(new GameOffer(null, gameOffersDTO.getOffer(), gameOffersDTO.getDate()));
         });
@@ -57,9 +54,9 @@ public class DiscountOfGamesController {
         Date yesterday = calendar.getTime();
 
         discountOfGamesRepository.saveAndFlush(new UpdateOfDiscount(null, yesterday, 0, false));
-        *//*
-        end of data create
-        *//*
+
+
+
         Date dateUpdate = discountOfGamesRepository.findAll().stream()
                 .max(Comparator.comparing(UpdateOfDiscount::getUpdateDate)).get().getUpdateDate();
 
@@ -71,5 +68,5 @@ public class DiscountOfGamesController {
         });
         discountOfGamesRepository.saveAndFlush(new UpdateOfDiscount(null, new Date(), 0, false));
         return newOffers;
-    }*/
+    }
 }
