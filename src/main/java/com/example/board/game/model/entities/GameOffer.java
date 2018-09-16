@@ -9,9 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@Entity
+//@Entity
 @ToString
-@Table(name = "GAME_OFFERS")
+//@Table(name = "GAME_OFFERS")
 public class GameOffer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

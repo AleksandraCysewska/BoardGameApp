@@ -12,8 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@Entity
-@Table(name = "UPDATES")
+//@Entity
+//@Table(name = "UPDATES")
 public class UpdateOfDiscount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
